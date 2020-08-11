@@ -1,0 +1,365 @@
+@font-face {
+    font-family: 'sofiapro-light';
+    src: url('Fonts/sofiapro-light-webfont.woff2') format('woff2'),
+         url('Fonts/sofiapro-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+img
+{
+    opacity: 0.85;
+}
+
+img.profil
+{
+    width: 6.8em;
+    border: 0.01em solid rgba(166, 166, 201, 0.9);
+    border-radius: 0.50em;
+}
+
+.headerpad
+{
+    padding-top:6.0em;
+
+}
+
+.nom
+{
+    text-align: center;
+}
+.city
+{
+    text-align: center;
+}
+
+.logo
+{
+    width:2.0em;
+    border-radius: 1.0em;
+    text-align: center;
+    border: 0.01em solid rgba(166, 166, 201, 0.9);;
+    box-shadow: 0.2em 0.1em 0.5em rgba(151, 151, 206, 0.9);
+}
+.stars
+{
+    width:1.0em;
+    border-radius: 0.1em;
+    text-align: center;
+    background-color: rgba(188, 188, 199, 0.9);
+
+    box-shadow: 0.2em 0.1em 0.3em rgba(151, 151, 206, 0.5);
+}
+img:hover
+{
+    opacity: 1;
+}
+
+#backimage
+{
+    display:flex;
+    flex-direction:row;
+    justify-content: space-around;
+    text-align: center;
+    align-content: stretch;
+    width: 100%;
+    z-index: 1;
+    /*border: 0.1em solid rgba(30, 30, 32, 0.9);*/
+}
+#backimagelangue
+{
+    display:flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+    align-content: stretch;
+    width: 100%;
+    margin-bottom: 1.0em;
+    z-index: 1; 
+    border: 0.01em solid rgba(166, 166, 201, 0.5);
+    border-radius: 0.50em;
+}   
+#presentation
+{
+    background-image: linear-gradient(
+		to right,
+		rgba(253, 255, 255, 0.5),
+		rgba(154, 155, 155, 0.5)),
+		url("fractal.png");
+    display:flex;
+    flex-direction:column;
+    justify-content: space-around;
+    text-align: center;
+    align-content: stretch;
+    width: 100%;
+    z-index: 1;
+    /*border: 0.1em solid rgba(30, 30, 32, 0.9);*/
+}
+#content
+{
+    background-image: linear-gradient(
+		to right,
+		rgba(253, 255, 255, 0.8),
+		rgba(154, 155, 155, 0.8)),
+		url("fractal.png");
+    display:flex;
+    flex-direction:column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+    align-content: stretch;
+    z-index: 1;
+    padding-left: 5%;
+    padding-right: 5%;    
+    /*border: 0.1em solid rgba(30, 30, 32, 0.9);*/
+}
+
+
+.remunderline
+{
+    text-decoration: none;
+    padding: 0em;
+    color: rgba(42, 42, 58, 0.9);
+    font-size: 1.20rem;
+
+}
+.elementlangue
+{
+    flex:1;
+}
+
+.element:hover
+{
+    font-weight: bold;
+    background-color: rgba(188, 188, 199, 0.9);
+}
+
+
+
+ul
+{
+    text-align: justify;
+    overflow: auto;
+}
+
+.date
+{
+    font-weight: bold;
+}
+
+.links
+{
+    text-align: center;
+}
+
+.phone
+{
+    text-align: center;
+    vertical-align: middle;
+
+}
+
+.photo
+{
+    text-align: center;
+}
+.mail
+{
+    vertical-align: middle;
+}
+
+
+body
+{
+padding-top: 2.3em;
+padding-bottom: 8.50em;
+margin: 0;
+max-width: 100%;
+color:rgba(35, 35, 43, 0.9);
+font-family: sofiapro-light,Arial, Helvetica, sans-serif;
+font-size: 1.0rem;
+}
+
+h2
+{
+    margin-top: 2.20em;
+}
+
+#navigation
+{
+    display:flex;
+    flex-direction:row;
+    text-align: center;
+    font-size: 0.50rem;
+    justify-content: start;
+    position: fixed;
+    width: 100%;
+    top:0;
+    right:0;
+    z-index: 1;
+    box-shadow: 0.2em 0.1em 0.5em rgba(193, 193, 211, 0.9);
+    background-color: rgba(253, 255, 255, 0.5);
+}
+
+.element
+{
+    flex:1;
+    flex-shrink: 0;
+    min-width: 120px;
+    border: 0.01em solid white;
+    box-shadow: 0.1em 0.1em 0.5em rgba(151, 151, 206, 0.9);
+    background-color: rgba(211, 211, 216, 0.9);
+    border: 0.01em solid rgba(187, 187, 201, 0.5);
+    border-radius: 0.80em;    
+    padding-left: 2%;
+    padding-right: 2%;   
+}
+
+#foot
+{
+    display:flex;
+    flex-direction:column;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+#footinfo
+{
+    background-image: linear-gradient(
+		to right,
+		rgba(236, 238, 238, 0.9),
+		rgba(182, 182, 182, 0.9)),
+		url("fractal.png");
+    display:flex;
+    flex-direction:row;
+    justify-content: space-around;
+    text-align: center;
+    align-content: stretch;
+    width: 100%;
+    z-index: 1;
+    /*border: 0.1em solid rgba(30, 30, 32, 0.9);*/
+}
+.elementheader
+{
+    order: 1;
+    flex:1;
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.format_exeprience
+{
+    text-align: justify;
+
+    margin-left: 1.0em;
+    margin-right: 1.0em;
+
+    border: 0.01em solid rgba(166, 166, 201, 0.5);
+    padding-left: 5%;
+    padding-right: 5%;   
+    border-radius: 0.50em;    
+}
+#research
+{
+    background-image: linear-gradient(
+		to right,
+		rgba(253, 255, 255, 0.5),
+		rgba(154, 155, 155, 0.5)),
+		url("fractal.png");
+    display:flex;
+    flex-direction:column;
+    justify-content: space-around;
+    text-align: center;
+    flex-wrap: wrap;
+
+    align-content: stretch;
+    border: 0.01em solid rgba(166, 166, 201, 0.5);
+    border-radius: 0.50em;
+}
+
+.research_element:nth-child(2)
+{
+    flex:1;
+    vertical-align: middle;
+
+}
+.research_element:nth-child(1)
+{
+    flex:5;
+    text-align: justify;
+    vertical-align: middle;
+    padding-left:1.0em;
+    padding-right:1.0em;
+
+}
+#diver
+{
+    padding-bottom: 0;
+}
+
+
+@media screen and (max-width:680px)
+{
+    body
+    {
+    padding-top: 4.4em;
+    padding-bottom: 8.10em;
+    max-width: 100%;
+    color:rgba(35, 35, 43, 0.9);
+    font-family: sofiapro-light,Arial, Helvetica, sans-serif;
+    font-size: 1.0rem;
+    }        
+    #navigation
+    {
+        display:flex;
+        flex-direction:row;
+        flex-wrap: wrap;
+        min-width: 350px;
+
+        text-align: center;
+        font-size: 0.50rem;
+        justify-content: start;
+        position: fixed;
+        top:0;
+        right:0;
+        z-index: 1;
+        box-shadow: 0.2em 0.1em 0.5em rgba(193, 193, 211, 0.9);
+        background-color: rgba(231, 231, 240, 0.9);
+
+        /*- border: 0.1em solid rgba(30, 30, 32, 0.9); */
+    }
+    h2
+    {
+        margin-top: 6.40em;
+    }  
+    #backimage
+    {
+        display:flex;
+        flex-direction:column;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        text-align: center;
+        align-content: stretch;
+        width: 100%;
+        z-index: 1; 
+    }    
+    #backimagelangue
+    {
+        display:flex;
+        flex-direction:column;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        text-align: center;
+        align-content: stretch;
+        width: 100%;
+        margin-bottom: 1.0em;
+
+        z-index: 1; 
+        border: 0.01em solid rgba(166, 166, 201, 0.5);
+        border-radius: 0.50em;
+    }        
+}
+

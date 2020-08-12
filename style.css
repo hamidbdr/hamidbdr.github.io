@@ -170,7 +170,7 @@ ul
 body
 {
 padding-top: 2.3em;
-padding-bottom: 8.50em;
+padding-bottom: 8.80em;
 margin: 0;
 max-width: 100%;
 color:rgba(35, 35, 43, 0.9);
@@ -234,6 +234,7 @@ h2
     justify-content: space-around;
     text-align: center;
     align-content: stretch;
+    border-top: 0.01em solid rgba(187, 187, 201, 0.5);
     width: 100%;
     z-index: 1;
     /*border: 0.1em solid rgba(30, 30, 32, 0.9);*/
@@ -302,7 +303,7 @@ h2
     body
     {
     padding-top: 4.4em;
-    padding-bottom: 8.60em;
+    padding-bottom: 8.80em;
     max-width: 100%;
     color:rgba(35, 35, 43, 0.9);
     font-family: 'Roboto',Arial, Helvetica, sans-serif;

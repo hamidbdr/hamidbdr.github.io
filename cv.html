@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hamid Badri · CV</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/jpeg" href="assets/favicon.jpg">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<!-- Source of CV_HamidBadri.pdf. Regenerate with:
+     chrome --headless --no-pdf-header-footer --print-to-pdf=CV_HamidBadri.pdf cv.html -->
+<style>
+@page { size: A4; margin: 14mm 15mm 13mm; }
+:root {
+  --fg: #15202b; --muted: #5a6876; --line: #dde3ea; --accent: #2149c9;
+  --display: "Instrument Serif", Georgia, serif;
+  --body: "IBM Plex Sans", "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", Consolas, monospace;
+}
+* { box-sizing: border-box; }
+html { background: #e9edf1; }
+body { margin: 0; color: var(--fg); font: 400 9.4pt/1.42 var(--body); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.page { background: #fff; max-width: 210mm; margin: 0 auto; padding: 14mm 15mm; }
+@media print { html { background: #fff; } .page { padding: 0; max-width: none; } }
+a { color: var(--accent); text-decoration: none; }
+
+header { display: grid; grid-template-columns: 1fr auto; gap: 8mm; align-items: center; padding-bottom: 4mm; border-bottom: 1px solid var(--line); }
+h1 { font: 400 28pt/1 var(--display); margin: 0 0 1.5mm; }
+.role { font-size: 11.5pt; margin: 0 0 1mm; }
+.where { font: 400 8.5pt/1.4 var(--mono); color: var(--muted); margin: 0 0 2.5mm; }
+.contact { display: flex; flex-wrap: wrap; gap: 0.6mm 5mm; font: 400 8.2pt/1.5 var(--mono); }
+header img { width: 27mm; height: auto; border-radius: 2px; }
+
+.summary { margin: 4mm 0 0; }
+
+h2 { break-after: avoid; font: 500 7.8pt/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 6mm 0 2.5mm; padding-bottom: 1.5mm; border-bottom: 1px solid var(--line); }
+.entry { display: grid; grid-template-columns: 31mm 1fr; gap: 4mm; margin-bottom: 2.6mm; break-inside: avoid; }
+.when { font: 400 8.2pt/1.45 var(--mono); color: var(--muted); padding-top: 0.3mm; white-space: nowrap; }
+h3 { font-size: 9.6pt; font-weight: 600; margin: 0; }
+h3 .org { font-weight: 400; color: var(--muted); }
+.entry p { margin: 0.6mm 0 0; }
+ul { margin: 0.8mm 0 0; padding-left: 4mm; }
+li { margin-bottom: 0.5mm; }
+li::marker { color: var(--muted); }
+.sub { font: 400 8.2pt/1.45 var(--mono); color: var(--muted); margin: 0.3mm 0 0; }
+
+.pubs { margin: 0; padding-left: 0; list-style: none; }
+.pubs li { display: grid; grid-template-columns: 31mm 1fr; gap: 4mm; margin-bottom: 1.8mm; break-inside: avoid; }
+.pubs .meta { color: var(--muted); }
+
+.grid2 { break-inside: avoid; display: grid; grid-template-columns: 1fr 1fr; gap: 2.5mm 8mm; }
+.grid2 b { display: block; font: 500 7.8pt/1.3 var(--mono); letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.6mm; }
+.grid2 p { margin: 0; }
+footer { margin-top: 6mm; font: 400 7.6pt/1.4 var(--mono); color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <div>
+    <h1>Dr. Hamid Badri</h1>
+    <p class="role">Lead Data Scientist, Battery Modeling &amp; Diagnosis</p>
+    <p class="where">Circunomics GmbH · Frankfurt am Main, Germany</p>
+    <div class="contact">
+      <a href="mailto:hamid.bdri@gmail.com">hamid.bdri@gmail.com</a>
+      <a href="https://hamidbdr.github.io">hamidbdr.github.io</a>
+      <a href="https://www.linkedin.com/in/hamid-badri/">linkedin.com/in/hamid-badri</a>
+      <a href="https://scholar.google.com/citations?user=9fMwc-wAAAAJ">Google Scholar</a>
+      <a href="https://github.com/hamidbdr">github.com/hamidbdr</a>
+    </div>
+  </div>
+  <img src="assets/photo.jpg" alt="Hamid Badri">
+</header>
+
+<p class="summary">Data scientist with a PhD in physics and numerical modeling. I lead battery modeling and diagnosis at Circunomics: state-of-health estimation, degradation and remaining-life modeling for EV and stationary batteries in first and second life. My research background is in inverse problems and adjoint-state methods; I combine physics-based and machine-learning models and take them from data pipelines to production.</p>
+
+<h2>Experience</h2>
+<div class="entry">
+  <div class="when">Aug 2021 – now</div>
+  <div>
+    <h3>Circunomics GmbH <span class="org">· battery lifecycle analytics &amp; marketplace</span></h3>
+    <p class="sub">Lead Data Scientist, Battery Modeling &amp; Diagnosis (current) · Senior Data Scientist from Aug 2021</p>
+    <ul>
+      <li>Lead battery state-of-health, degradation and remaining-life modeling for EV and stationary storage batteries, in first and second life.</li>
+      <li>Multivariate time-series forecasting, predictive maintenance and anomaly detection with machine learning and deep learning.</li>
+      <li>Built and lead the data pipelines in Apache Airflow on Kubernetes (Azure AKS), and the analytics app that serves KPIs, time series and detected anomalies to customers.</li>
+      <li>Present the analytics to customers and drive new data-driven product features.</li>
+    </ul>
+  </div>
+</div>
+<div class="entry">
+  <div class="when">Jan – Jul 2021</div>
+  <div>
+    <h3>Data Scientist <span class="org">· BIAL-R / Merck Group (M-Lab)</span></h3>
+    <ul>
+      <li>Multivariate time-series forecasting and predictive maintenance with deep learning and machine learning.</li>
+      <li>Wrapped models in REST APIs and prepared them for serving on AWS Lambda.</li>
+    </ul>
+  </div>
+</div>
+<div class="entry">
+  <div class="when">Mar 2019 – Aug 2020</div>
+  <div>
+    <h3>Data Scientist <span class="org">· Stockbooking, France</span></h3>
+    <ul>
+      <li>Stock optimisation with reinforcement learning (Q-learning, SARSA, deep Q-networks).</li>
+      <li>Demand forecasting with LSTM and SARIMAX; data pipelines; API serving forecasting and decision models.</li>
+      <li>Managed the company's part of ICONET, an EU research project on the Physical Internet.</li>
+    </ul>
+  </div>
+</div>
+<div class="entry">
+  <div class="when">2015 – 2018</div>
+  <div>
+    <h3>Doctoral Researcher <span class="org">· University of Strasbourg</span></h3>
+    <p>Inverse problems and model calibration: identification of parameters and source terms for flow and transport in porous and fractured media, with continuous and discrete adjoint states and constrained optimisation. Teaching assistant, Faculty of Physics &amp; Engineering, 2016–2018.</p>
+  </div>
+</div>
+<div class="entry">
+  <div class="when">2010 – 2015</div>
+  <div>
+    <h3>Earlier engineering work</h3>
+    <ul>
+      <li>2015: nonlinear thermal and multi-physics model of Li-ion batteries, ICube / QEERI (Qatar), 5 months.</li>
+      <li>2014: consultant, Qatar Environment and Energy Research Institute.</li>
+      <li>2013: technical manager, GREEN-CAR solar-car prototype (Morocco).</li>
+      <li>2012: graduation project at OCP SA (Morocco): plant availability, automation system and operator GUI.</li>
+      <li>2010–2011: technical manager of a 10-person team, ENSAcar, Shell Eco-marathon Europe 2011.</li>
+    </ul>
+  </div>
+</div>
+
+<h2>Skills</h2>
+<div class="grid2">
+  <div><b>Battery analytics</b><p>SoH and SoC estimation, degradation and RUL modeling, knee detection, rainflow cycle counting, PyBaMM, second-life assessment.</p></div>
+  <div><b>Machine learning</b><p>Time-series forecasting, anomaly detection, predictive maintenance, reinforcement learning, SHAP. TensorFlow, Keras, scikit-learn.</p></div>
+  <div><b>Data &amp; MLOps</b><p>Python, pandas, NumPy, Dask, SQL, Apache Airflow, Docker, Kubernetes (AKS), Azure, AWS, Git, Flask, FastAPI.</p></div>
+  <div><b>Modeling &amp; maths</b><p>Inverse problems, adjoint-state methods, constrained optimisation, PDE-based simulation, MATLAB, SciPy.</p></div>
+</div>
+
+<h2>Publications</h2>
+<ol class="pubs">
+  <li><span class="when">2019</span><span>Heterogeneous hydraulic conductivity and porosity fields reconstruction through steady-state flow and transient solute transport data using the continuous adjoint state. <span class="meta">F. Delay, H. Badri, P. Ackerer. <i>Advances in Water Resources</i>.</span></span></li>
+  <li><span class="when">2018</span><span>Identification des paramètres de l'écoulement et du transport en milieu poreux par la méthode de l'état adjoint continu. <span class="meta">PhD thesis, University of Strasbourg.</span></span></li>
+  <li><span class="when">2017</span><span>A comparison of discrete versus continuous adjoint states to invert groundwater flow in heterogeneous dual porosity systems. <span class="meta">F. Delay, H. Badri, M. Fahs, P. Ackerer. <i>Advances in Water Resources</i>.</span></span></li>
+  <li><span class="when">2015</span><span>Self-consistent approach to solving the 1D Thomas-Fermi equation using an exponential basis set. <span class="meta">H. Badri, F. H. Alharbi, R. Jovanovic. <i>AIP Conference Proceedings</i>.</span></span></li>
+</ol>
+<p class="sub">Reviewer for Hydrogeology Journal since 2018.</p>
+
+<h2>Education</h2>
+<div class="entry"><div class="when">2018</div><div><h3>PhD, Physics and Numerical Modeling <span class="org">· University of Strasbourg</span></h3></div></div>
+<div class="entry"><div class="when">2015</div><div><h3>MSc, Computational Engineering <span class="org">· University of Strasbourg, ICube</span></h3></div></div>
+<div class="entry"><div class="when">2012</div><div><h3>Engineering degree, Process, Energy &amp; Environment <span class="org">· ENSA Agadir, Morocco</span></h3></div></div>
+<div class="entry"><div class="when">2009</div><div><h3>BSc, Science &amp; Technology (Maths, CS, Physics) · Energy <span class="org">· FSTS, Morocco</span></h3></div></div>
+
+<h2>Languages &amp; more</h2>
+<div class="grid2">
+  <div><b>Languages</b><p>French and Arabic (native), English (fluent, professional).</p></div>
+  <div><b>Robotics</b><p>Building a 3D-printed robot arm from scratch; videos on YouTube <a href="https://www.youtube.com/@dsc-dev">@dsc-dev</a>.</p></div>
+</div>
+
+<footer>Updated October 2026 · hamidbdr.github.io</footer>
+</div>
+</body>
+</html>

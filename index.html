@@ -8,197 +8,13 @@
 <meta name="description" content="Dr. Hamid Badri, Lead Data Scientist for battery modeling and diagnosis at Circunomics. PhD in physics and numerical modeling (University of Strasbourg). Machine learning, time series, inverse problems.">
 <meta property="og:title" content="Dr. Hamid Badri">
 <meta property="og:description" content="Lead Data Scientist, Battery Modeling & Diagnosis. PhD, inverse problems and numerical modeling.">
-<meta property="og:image" content="https://hamidbdr.github.io/photo_profil.jpg">
+<meta property="og:image" content="https://hamidbdr.github.io/assets/photo.jpg">
 <meta property="og:type" content="profile">
-<link rel="icon" type="image/jpeg" href="photo_profil_icon.jpg">
+<link rel="icon" type="image/jpeg" href="assets/favicon.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<style>
-/* Layout: one reading column; a mono date rail on the left of every entry, like a lab notebook. The hero carries a capacity-fade curve, the shape of the work. */
-:root {
-  --bg: #f5f7f9;
-  --surface: #ffffff;
-  --fg: #15202b;
-  --muted: #5a6876;
-  --line: #dde3ea;
-  --accent: #2149c9;
-  --knee: #c97a00;
-  --font-display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
-  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
-  --step--1: 0.8125rem;
-  --step-0: 1rem;
-  --step-1: 1.25rem;
-  --step-3: 2rem;
-  --step-5: clamp(2.75rem, 7vw, 4.5rem);
-  color-scheme: light;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0e1419; --surface: #151d24; --fg: #e4eaf0; --muted: #94a3b1;
-    --line: #26323d; --accent: #86a4ff; --knee: #f0a93a; color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #0e1419; --surface: #151d24; --fg: #e4eaf0; --muted: #94a3b1;
-  --line: #26323d; --accent: #86a4ff; --knee: #f0a93a; color-scheme: dark;
-}
-
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--fg);
-  font: 400 var(--step-0)/1.6 var(--font-body);
-  -webkit-font-smoothing: antialiased;
-}
-a { color: var(--accent); text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
-a:hover { text-decoration-thickness: 2px; }
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
-img { max-width: 100%; display: block; }
-
-.wrap { max-width: 52rem; margin: 0 auto; padding-inline: 1.25rem; }
-
-/* Top bar */
-.bar {
-  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
-  background: color-mix(in srgb, var(--bg) 88%, transparent);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--line);
-}
-.bar .wrap { display: flex; align-items: center; gap: 1.5rem; padding-block: 0.75rem; }
-.bar .mark { font-family: var(--font-display); font-size: var(--step-1); color: var(--fg); text-decoration: none; white-space: nowrap; }
-.bar nav { display: flex; gap: 1.25rem; overflow-x: auto; scrollbar-width: none; margin-left: auto; }
-.bar nav a {
-  font: 500 var(--step--1)/1 var(--font-mono); letter-spacing: 0.04em; text-transform: uppercase;
-  color: var(--muted); text-decoration: none; white-space: nowrap; padding-block: 0.35rem;
-}
-.bar nav a:hover { color: var(--fg); }
-
-/* Hero */
-.hero { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 2rem; align-items: center; padding-block: 3.5rem 2.5rem; }
-.hero img { width: 10rem; height: auto; aspect-ratio: 285 / 425; border-radius: 4px; filter: saturate(0.9); }
-.hero h1 { font: 400 var(--step-5)/1 var(--font-display); margin: 0 0 0.75rem; letter-spacing: -0.01em; text-wrap: balance; }
-.hero h1 em { color: var(--muted); font-size: 0.5em; vertical-align: 0.6em; margin-right: 0.15em; }
-.role { font-size: var(--step-1); line-height: 1.4; margin: 0 0 0.5rem; text-wrap: balance; }
-.where { font: 400 var(--step--1)/1.5 var(--font-mono); color: var(--muted); margin: 0; }
-
-.lede { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 17rem); gap: 2.5rem; align-items: start; padding-bottom: 2.5rem; border-bottom: 1px solid var(--line); }
-.lede p { margin: 0 0 1rem; max-width: 62ch; }
-.links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; margin-top: 1.25rem; font-size: var(--step--1); }
-.links a { font-family: var(--font-mono); }
-.copy { font: inherit; font-family: var(--font-mono); color: var(--fg); background: none; border: 0; padding: 0; cursor: pointer; }
-.copy[data-done]::after { content: "copied"; color: var(--muted); font-size: 0.85em; }
-
-.ico { width: 1.05em; height: 1.05em; flex: none; fill: currentColor; }
-.links a, .links .copy { display: inline-flex; align-items: center; gap: 0.45em; }
-.links a { color: var(--fg); text-decoration: none; }
-.links .lbl-t { text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 0.25em; }
-.links a:hover, .links .copy:hover { color: var(--accent); }
-.links a:hover .lbl-t, .links .copy:hover .lbl-t { text-decoration-color: currentColor; }
-.links .ico { color: var(--muted); transition: color .15s; }
-.links a:hover .ico, .links .copy:hover .ico { color: var(--accent); }
-.social { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-.social a { display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border: 1px solid var(--line); border-radius: 50%; color: var(--muted); }
-.social a:hover { color: var(--accent); border-color: var(--accent); }
-.social .ico { width: 1rem; height: 1rem; }
-
-/* Capacity fade figure */
-figure.fade { margin: 0; }
-figure.fade svg { width: 100%; height: auto; display: block; overflow: visible; }
-figure.fade figcaption { font: 400 0.75rem/1.45 var(--font-mono); color: var(--muted); margin-top: 0.5rem; }
-.ax { stroke: var(--line); stroke-width: 1; fill: none; }
-.band { fill: var(--accent); opacity: 0.06; }
-.eol { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 3 4; fill: none; }
-.curve { stroke: var(--accent); stroke-width: 2.25; fill: none; stroke-linecap: round; }
-.hi { stroke: var(--knee); stroke-width: 1.75; fill: none; stroke-linecap: round; stroke-dasharray: 5 3; }
-.second { stroke: var(--accent); stroke-width: 2.25; fill: none; stroke-dasharray: 2 5; stroke-linecap: round; }
-.kneept { fill: var(--knee); }
-.kneept.lo { fill: var(--accent); }
-.recy { fill: var(--muted); }
-.ext { stroke: var(--knee); stroke-width: 1.25; fill: none; }
-.arrhead { fill: var(--knee); }
-.lbl { font: 400 10px var(--font-mono); fill: var(--muted); }
-.lbl.zone { fill: var(--fg); opacity: 0.75; }
-.lbl-k { font: 500 10px var(--font-mono); fill: var(--knee); }
-
-/* Sections */
-section { padding-block: 3rem 1rem; }
-h2 {
-  display: flex; align-items: baseline; gap: 0.75rem;
-  font: 400 var(--step-3)/1.1 var(--font-display); margin: 0 0 1.75rem;
-}
-h2 small { font: 500 0.6875rem/1 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
-
-.entry { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); gap: 1.5rem; padding-block: 1.1rem; border-top: 1px solid var(--line); }
-.entry:first-of-type { border-top: 0; padding-top: 0; }
-.when { font: 400 var(--step--1)/1.6 var(--font-mono); color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 0.15rem; }
-.entry h3 { font-size: var(--step-0); font-weight: 600; margin: 0; line-height: 1.45; }
-.entry .org { color: var(--muted); font-weight: 400; }
-.entry p { margin: 0.35rem 0 0; max-width: 62ch; }
-.entry ul { margin: 0.5rem 0 0; padding-left: 1.1rem; max-width: 62ch; }
-.entry li { margin-bottom: 0.3rem; }
-.entry li::marker { color: var(--muted); }
-.roles { list-style: none; padding: 0 !important; margin: 0.15rem 0 0.4rem !important; }
-.roles li { font-size: var(--step--1); color: var(--muted); font-family: var(--font-mono); }
-.roles li b { color: var(--fg); font-family: var(--font-body); font-weight: 600; font-size: var(--step-0); }
-.now { display: inline-block; font: 500 0.6875rem/1 var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); border: 1px solid currentColor; border-radius: 3px; padding: 0.2rem 0.35rem; margin-left: 0.4rem; vertical-align: 0.15em; }
-
-.earlier { margin-top: 0.5rem; border-top: 1px solid var(--line); }
-.earlier summary { cursor: pointer; padding-block: 1rem; font: 500 var(--step--1)/1 var(--font-mono); letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
-.earlier summary:hover { color: var(--fg); }
-
-/* Research */
-.metrics { display: flex; flex-wrap: wrap; gap: 2rem; margin-bottom: 1.75rem; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
-.metrics div { display: grid; gap: 0.15rem; }
-.metrics b { font: 400 var(--step-3)/1 var(--font-display); }
-.metrics span { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
-.pubs { list-style: none; padding: 0; margin: 0; }
-.pubs li { display: grid; grid-template-columns: 3.5rem minmax(0, 1fr) auto; gap: 1rem; padding-block: 0.9rem; border-top: 1px solid var(--line); align-items: baseline; }
-.pubs .yr, .pubs .cit { font: 400 var(--step--1)/1.5 var(--font-mono); color: var(--muted); font-variant-numeric: tabular-nums; }
-.pubs .cit { text-align: right; white-space: nowrap; }
-.pubs .t { font-weight: 500; }
-.pubs .meta { display: block; font-size: var(--step--1); color: var(--muted); margin-top: 0.2rem; }
-.pubs .meta i { font-style: italic; }
-.note { font-size: var(--step--1); color: var(--muted); margin-top: 1rem; }
-
-.workshop p { margin: 0 0 1rem; max-width: 62ch; }
-.channels { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: 0.75rem; }
-.channels a { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 0.85rem; align-items: center; padding: 0.9rem 1rem; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; text-decoration: none; color: var(--fg); }
-.channels a:hover { border-color: var(--accent); }
-.channels b { font-weight: 600; }
-.channels .ico { grid-row: span 2; width: 1.5rem; height: 1.5rem; color: var(--muted); }
-.channels a:hover .ico { color: var(--accent); }
-.channels span { font: 400 var(--step--1)/1.4 var(--font-mono); color: var(--accent); overflow-wrap: anywhere; }
-
-/* Skills */
-.skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.75rem 2.5rem; }
-.skills h3 { font: 500 0.75rem/1 var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 0 0 0.6rem; }
-.skills p { margin: 0; }
-
-.langs { display: flex; flex-wrap: wrap; gap: 0.5rem 2.5rem; }
-.langs span { color: var(--muted); font-size: var(--step--1); font-family: var(--font-mono); margin-left: 0.4rem; }
-
-footer { margin-top: 3rem; border-top: 1px solid var(--line); }
-footer .wrap { display: flex; flex-wrap: wrap; gap: 0.75rem 2rem; justify-content: space-between; align-items: center; padding-block: 1.75rem 2.5rem; font: 400 var(--step--1)/1.5 var(--font-mono); color: var(--muted); }
-footer .links { margin: 0; }
-
-@media (max-width: 40rem) {
-  .bar .mark { display: none; }
-  .bar nav { margin-left: 0; }
-  .hero { grid-template-columns: 1fr; gap: 1.25rem; padding-block: 2rem 1.75rem; }
-  .hero img { width: 8rem; }
-  .lede { grid-template-columns: 1fr; gap: 1.5rem; }
-  figure.fade { max-width: 20rem; }
-  .entry { grid-template-columns: 1fr; gap: 0.25rem; }
-  .skills { grid-template-columns: 1fr; }
-  .pubs li { grid-template-columns: minmax(0, 1fr) auto; }
-  .pubs .yr { grid-column: 1 / -1; }
-}
-</style>
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -209,6 +25,7 @@ footer .links { margin: 0; }
   <symbol id="i-youtube" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></symbol>
   <symbol id="i-tiktok" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></symbol>
   <symbol id="i-instagram" viewBox="0 0 24 24"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></symbol>
+  <symbol id="i-cv" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 4v11 M7 10.5l5 5 5-5 M5 20h14"/></symbol>
   <symbol id="i-mail" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M3 5.5h18v13H3z M3.5 6l8.5 7 8.5-7"/></symbol>
 </svg>
 
@@ -229,7 +46,7 @@ footer .links { margin: 0; }
 <main class="wrap" id="top">
 
   <div class="hero">
-    <img src="photo_profil.jpg" alt="Portrait of Hamid Badri" width="285" height="425">
+    <img src="assets/photo.jpg" alt="Portrait of Hamid Badri" width="285" height="425">
     <div>
       <h1><em>Dr.</em>Hamid Badri</h1>
       <p class="role">Lead Data Scientist, Battery Modeling &amp; Diagnosis</p>
@@ -242,6 +59,7 @@ footer .links { margin: 0; }
       <p>I build models that tell how a lithium-ion battery is aging and how much life it has left. At Circunomics I lead the battery modeling and diagnosis work behind a platform that assesses EV and stationary batteries for second-life use and recycling.</p>
       <p>My background is physics and numerical modeling. My PhD at the University of Strasbourg was on inverse problems: recovering hidden parameters of flow in porous media from sparse measurements with adjoint-state methods. Estimating a battery's state of health from field data is the same kind of problem, and I work on it with a mix of physics-based and machine-learning models, from data pipelines to production.</p>
       <div class="links">
+        <a href="CV_HamidBadri.pdf" download><svg class="ico" aria-hidden="true"><use href="#i-cv"/></svg><span class="lbl-t">CV (PDF)</span></a>
         <button class="copy" type="button" id="copy-email" data-email="hamid.bdri@gmail.com" title="Copy email address"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg><span class="lbl-t">hamid.bdri@gmail.com</span></button>
         <a href="https://www.linkedin.com/in/hamid-badri/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-linkedin"/></svg><span class="lbl-t">LinkedIn</span></a>
         <a href="https://scholar.google.com/citations?user=9fMwc-wAAAAJ" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-googlescholar"/></svg><span class="lbl-t">Google Scholar</span></a>
@@ -469,6 +287,7 @@ footer .links { margin: 0; }
   <div class="wrap">
     <span>© 2026 Hamid Badri · Frankfurt am Main</span>
     <nav class="social" aria-label="Profiles">
+      <a href="CV_HamidBadri.pdf" download aria-label="Download CV (PDF)" title="Download CV (PDF)"><svg class="ico" aria-hidden="true"><use href="#i-cv"/></svg></a>
       <a href="mailto:hamid.bdri@gmail.com" aria-label="Email" title="Email"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg></a>
       <a href="https://www.linkedin.com/in/hamid-badri/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg class="ico" aria-hidden="true"><use href="#i-linkedin"/></svg></a>
       <a href="https://scholar.google.com/citations?user=9fMwc-wAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar"><svg class="ico" aria-hidden="true"><use href="#i-googlescholar"/></svg></a>

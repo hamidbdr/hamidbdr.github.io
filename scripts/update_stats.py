@@ -8,6 +8,7 @@ changes, the previous value is kept so the site never shows a blank.
 import html
 import http.client
 import json
+import os
 import re
 import sys
 import urllib.request
@@ -49,6 +50,16 @@ def get(url, headers=None, data=None):
 def tiktok_views(video_id):
     page = get(f"https://www.tiktok.com/@{TIKTOK_USER}/video/{video_id}")
     return int(re.search(r'"playCount":(\d+)', page).group(1))
+
+
+def youtube_api_views(video_ids):
+    """Official YouTube Data API; needs a free key in the YT_API_KEY secret."""
+    key = os.environ.get("YT_API_KEY")
+    if not key:
+        return {}
+    data = json.loads(get("https://www.googleapis.com/youtube/v3/videos?part=statistics&id=%s&key=%s"
+                          % (",".join(video_ids), key)))
+    return {item["id"]: int(item["statistics"]["viewCount"]) for item in data.get("items", [])}
 
 
 def youtube_views(video_id, feed=None):
@@ -107,8 +118,9 @@ def main():
         if n:
             stats.setdefault("tiktok", {})[vid] = n
     feed = attempt("youtube feed", lambda: get(f"https://www.youtube.com/feeds/videos.xml?channel_id={YOUTUBE_CHANNEL}"))
+    api = attempt("youtube api", lambda: youtube_api_views(YOUTUBE_VIDEOS)) or {}
     for vid in YOUTUBE_VIDEOS:
-        n = attempt(f"youtube {vid}", lambda: youtube_views(vid, feed))
+        n = api.get(vid) or attempt(f"youtube {vid}", lambda: youtube_views(vid, feed))
         if n:
             stats.setdefault("youtube", {})[vid] = n
     s = attempt("scholar", scholar)

@@ -17,6 +17,8 @@ jobs:
         with:
           python-version: "3.12"
       - run: python scripts/update_stats.py
+        env:
+          YT_API_KEY: ${{ secrets.YT_API_KEY }} # optional; see README
       - name: Commit if the numbers changed
         run: |
           if git diff --quiet assets/stats.json; then

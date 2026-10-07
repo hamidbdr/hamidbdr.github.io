@@ -149,6 +149,38 @@ h2 small { font: 500 0.6875rem/1 var(--font-mono); letter-spacing: 0.08em; text-
 .note { font-size: var(--step--1); color: var(--muted); margin-top: 1rem; }
 
 .workshop p { margin: 0 0 1rem; max-width: 62ch; }
+.vh { font: 500 0.75rem/1 var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 2rem 0 0.9rem; }
+.shorts { list-style: none; padding: 0 0 0.5rem; margin: 0; display: grid; grid-auto-flow: column; grid-auto-columns: 10.5rem; gap: 0.75rem; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; }
+.shorts li { scroll-snap-align: start; min-width: 0; }
+.shorts a, .shorts iframe { display: block; position: relative; width: 100%; aspect-ratio: 9 / 16; border-radius: 6px; overflow: hidden; border: 0; background: var(--line); }
+.shorts img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s; }
+.shorts a::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgb(0 0 0 / .78), rgb(0 0 0 / 0) 55%); }
+.shorts a span { position: absolute; z-index: 1; left: 0.7rem; right: 0.7rem; bottom: 0.65rem; color: #fff; font-size: var(--step--1); font-weight: 500; line-height: 1.35; text-wrap: balance; }
+.shorts .play { position: absolute; z-index: 1; top: 0.6rem; right: 0.6rem; width: 2rem; height: 2rem; padding: 0.45rem; border-radius: 50%; fill: #fff; background: rgb(0 0 0 / .45); transition: background .2s; }
+.shorts a:hover .play, .shorts a:focus-visible .play { background: var(--accent); }
+.shorts a:hover img { transform: scale(1.03); }
+@media (prefers-reduced-motion: reduce) { .shorts img, .shorts .play { transition: none; } .shorts a:hover img { transform: none; } }
+.feature { display: grid; grid-template-columns: 13rem minmax(0, 1fr); gap: 1.75rem; align-items: center; margin-top: 2rem; padding: 1.25rem; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+.feature .short { display: block; position: relative; aspect-ratio: 9 / 13; border-radius: 6px; overflow: hidden; }
+.feature .short img { width: 100%; height: 100%; object-fit: cover; }
+.feature .short span { display: none; }
+.feature .play { position: absolute; top: 50%; left: 50%; translate: -50% -50%; width: 3.25rem; height: 3.25rem; padding: 0.8rem; border-radius: 50%; fill: #fff; background: rgb(0 0 0 / .5); transition: background .2s; }
+.feature .short:hover .play { background: var(--accent); }
+.feature .vh { margin: 0 0 0.35rem; }
+.feature .big { margin: 0 0 0.75rem; color: var(--muted); }
+.feature .big b { font: 400 var(--step-5)/1 var(--font-display); color: var(--fg); margin-right: 0.35rem; font-variant-numeric: tabular-nums; }
+.feature h3 { font-size: var(--step-1); font-weight: 600; margin: 0 0 0.5rem; line-height: 1.3; }
+.feature p { margin: 0 0 1rem; }
+.watch { display: inline-flex; align-items: center; gap: 0.5em; font: 500 var(--step--1)/1 var(--font-mono); padding: 0.6rem 0.9rem; border: 1px solid var(--accent); border-radius: 4px; text-decoration: none; }
+.watch:hover { background: var(--accent); color: var(--surface); }
+@media (max-width: 40rem) { .feature { grid-template-columns: 1fr; } .feature .short { max-width: 15rem; } }
+.longs { list-style: none; padding: 0; margin: 0; }
+.longs a { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 0.75rem; align-items: baseline; padding-block: 0.65rem; border-top: 1px solid var(--line); color: var(--fg); text-decoration: none; }
+.longs li:last-child a { border-bottom: 1px solid var(--line); }
+.longs .ico { color: var(--muted); align-self: center; }
+.longs a:hover, .longs a:hover .ico { color: var(--accent); }
+.longs time { font: 400 var(--step--1)/1 var(--font-mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+
 .channels { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: 0.75rem; }
 .channels a { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 0.85rem; align-items: center; padding: 0.9rem 1rem; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; text-decoration: none; color: var(--fg); }
 .channels a:hover { border-color: var(--accent); }

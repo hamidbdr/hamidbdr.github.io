@@ -11,6 +11,8 @@ Personal site of Dr. Hamid Badri, served by GitHub Pages at <https://hamidbdr.gi
 | `CV_HamidBadri.pdf` | Downloadable CV |
 | `assets/videos/` | Video thumbnails (`.jpg`) and 10-second silent hover previews (`.mp4`) |
 | `assets/stats.json`, `scripts/`, `.github/` | Daily refresh of view counts and citations |
+| `assets/og-image.jpg` | 1200×630 image shown when the link is shared |
+| `robots.txt`, `sitemap.xml` | For search engines |
 
 ## Updating the CV PDF
 

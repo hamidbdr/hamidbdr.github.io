@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hamidbdr.github.io/sitemap.xml

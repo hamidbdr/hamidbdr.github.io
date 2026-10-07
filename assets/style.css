@@ -95,6 +95,7 @@ figure.fade svg { width: 100%; height: auto; display: block; overflow: visible; 
 figure.fade figcaption { font: 400 0.75rem/1.45 var(--font-mono); color: var(--muted); margin-top: 0.5rem; }
 .ax { stroke: var(--line); stroke-width: 1; fill: none; }
 .band { fill: var(--accent); opacity: 0.06; }
+.band-r { fill: var(--muted); opacity: 0.1; }
 .eol { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 3 4; fill: none; }
 .curve { stroke: var(--accent); stroke-width: 2.25; fill: none; stroke-linecap: round; }
 .hi { stroke: var(--knee); stroke-width: 1.75; fill: none; stroke-linecap: round; stroke-dasharray: 5 3; }

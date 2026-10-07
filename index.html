@@ -225,7 +225,7 @@
     <p>Outside work I am building a robot arm from scratch: designing the parts in 3D CAD, 3D printing them, and writing the control software. I document every step, from mechanics and electronics to code, and share it along with science, data science and engineering content.</p>
     <p>The source and printable parts are on <a href="https://github.com/hamidbdr/robot" target="_blank" rel="noopener">GitHub</a>.</p>
     <div class="feature">
-      <a class="short" href="https://www.tiktok.com/@hd.brr/video/7497985056653249814" target="_blank" rel="noopener">
+      <a class="short" href="https://www.tiktok.com/@hd.brr/video/7497985056653249814" data-preview="assets/videos/DRyZnX0eQtg.mp4" target="_blank" rel="noopener">
         <img src="assets/videos/tt-7497985056653249814.jpg" alt="" width="360" height="523" loading="lazy"><svg class="play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>
         <span>Flexible gripper</span></a>
       <div>
@@ -238,16 +238,16 @@
     </div>
     <h3 class="vh">More from the build</h3>
     <ul class="shorts">
-      <li><a class="short" href="https://www.youtube.com/shorts/pr7InxdE5OU" data-yt="pr7InxdE5OU" target="_blank" rel="noopener">
+      <li><a class="short" href="https://www.youtube.com/shorts/pr7InxdE5OU" data-yt="pr7InxdE5OU" data-preview="assets/videos/pr7InxdE5OU.mp4" target="_blank" rel="noopener">
         <img src="assets/videos/pr7InxdE5OU.jpg" alt="" width="360" height="640" loading="lazy"><svg class="play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg><em class="badge">Latest</em>
         <span>Inverse kinematics: circles, picks and singularities<small data-stat="youtube.pr7InxdE5OU" data-suffix=" views">1.4K views</small></span></a></li>
-      <li><a class="short" href="https://www.youtube.com/shorts/1_WKkzb5Dd4" data-yt="1_WKkzb5Dd4" target="_blank" rel="noopener">
+      <li><a class="short" href="https://www.youtube.com/shorts/1_WKkzb5Dd4" data-yt="1_WKkzb5Dd4" data-preview="assets/videos/1_WKkzb5Dd4.mp4" target="_blank" rel="noopener">
         <img src="assets/videos/1_WKkzb5Dd4.jpg" alt="" width="360" height="640" loading="lazy"><svg class="play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>
         <span>Soft grippers: fail, repeat<small data-stat="youtube.1_WKkzb5Dd4" data-suffix=" views">7.8K views</small></span></a></li>
-      <li><a class="short" href="https://www.youtube.com/shorts/xMZ7kFXE5Jc" data-yt="xMZ7kFXE5Jc" target="_blank" rel="noopener">
+      <li><a class="short" href="https://www.youtube.com/shorts/xMZ7kFXE5Jc" data-yt="xMZ7kFXE5Jc" data-preview="assets/videos/xMZ7kFXE5Jc.mp4" target="_blank" rel="noopener">
         <img src="assets/videos/xMZ7kFXE5Jc.jpg" alt="" width="360" height="640" loading="lazy"><svg class="play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>
         <span>HTD 5M transmission, right first time<small data-stat="youtube.xMZ7kFXE5Jc" data-suffix=" views">5.9K views</small></span></a></li>
-      <li><a class="short" href="https://www.youtube.com/shorts/X-8d8J09OTA" data-yt="X-8d8J09OTA" target="_blank" rel="noopener">
+      <li><a class="short" href="https://www.youtube.com/shorts/X-8d8J09OTA" data-yt="X-8d8J09OTA" data-preview="assets/videos/X-8d8J09OTA.mp4" target="_blank" rel="noopener">
         <img src="assets/videos/X-8d8J09OTA.jpg" alt="" width="360" height="640" loading="lazy"><svg class="play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>
         <span>Too ambitious: the arm needs more torque<small data-stat="youtube.X-8d8J09OTA" data-suffix=" views">2.5K views</small></span></a></li>
     </ul>
@@ -358,6 +358,32 @@
       });
     });
   }
+  // Silent preview loops: play on hover (or when mostly on screen on touch devices).
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var canHover = matchMedia('(hover: hover)').matches;
+    document.querySelectorAll('.short[data-preview]').forEach(function (a) {
+      var v = document.createElement('video');
+      v.className = 'preview';
+      v.muted = true; v.setAttribute('muted', '');
+      v.loop = true; v.playsInline = true;
+      v.setAttribute('aria-hidden', 'true');
+      a.querySelector('img').after(v);
+      var play = function () {
+        if (!v.src) v.src = a.dataset.preview; // nothing downloads until the first hover
+        v.play().then(function () { a.classList.add('playing'); }).catch(function () {});
+      };
+      var stop = function () { v.pause(); a.classList.remove('playing'); };
+      if (canHover) {
+        a.addEventListener('mouseenter', play); a.addEventListener('mouseleave', stop);
+        a.addEventListener('focus', play); a.addEventListener('blur', stop);
+      } else if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) { e.intersectionRatio >= 0.6 ? play() : stop(); });
+        }, { threshold: [0, 0.6] }).observe(a);
+      }
+    });
+  }
+
   // Live numbers: assets/stats.json is refreshed daily by .github/workflows/stats.yml.
   // The HTML keeps the last known values, so the page reads fine if this fails.
   fetch('assets/stats.json', { cache: 'no-cache' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (stats) {

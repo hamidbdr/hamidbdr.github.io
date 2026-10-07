@@ -9,7 +9,7 @@ Personal site of Dr. Hamid Badri, served by GitHub Pages at <https://hamidbdr.gi
 | `assets/photo.jpg`, `assets/favicon.jpg` | Portrait and tab icon |
 | `cv.html` | Printable CV, source of the PDF |
 | `CV_HamidBadri.pdf` | Downloadable CV |
-| `assets/videos/` | Video thumbnails |
+| `assets/videos/` | Video thumbnails (`.jpg`) and 4-second silent hover previews (`.mp4`) |
 | `assets/stats.json`, `scripts/`, `.github/` | Daily refresh of view counts and citations |
 
 ## Updating the CV PDF

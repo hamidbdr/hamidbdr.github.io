@@ -301,7 +301,7 @@
     </div>
 
     <figure class="fade" aria-labelledby="fade-cap">
-      <svg viewBox="0 0 300 192" role="img" aria-label="Sketch of battery state of health over time. Under high stress the curve bends at a knee and reaches 80 percent early. Under lower stress the knee comes later and first life lasts longer. Between 80 and 50 percent the pack works a second life as stationary storage; below 50 percent it goes to recycling.">
+      <svg viewBox="0 0 300 192" role="img" aria-label="Sketch of battery state of health over time. Under high stress the curve bends at a knee and reaches 80 percent early. Under lower stress the knee comes later and first life lasts longer. Between 80 and 50 percent the pack works a second life as stationary storage, fading slowly until a second knee; below 50 percent it goes to recycling.">
         <defs>
           <marker id="arr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L8 4L0 8z" class="arrhead"/></marker>
         </defs>
@@ -321,8 +321,9 @@
         <circle class="kneept" cx="80.5" cy="44" r="3"/>
         <path class="curve" d="M34 18 C 70 24.9, 102 38.8, 119.5 50.9 C 124 56.1, 128 63.1, 130 70"/>
         <circle class="kneept lo" cx="120" cy="52.2" r="3"/>
-        <path class="second" d="M130 70 C 148 80, 210 106, 280 148"/>
-        <rect class="recy" x="277" y="145" width="6" height="6"/>
+        <path class="second" d="M130 70 C 172 80, 226 92, 250 110 C 260 120, 267 134, 271 148"/>
+        <circle class="kneept lo" cx="251" cy="111" r="3"/>
+        <rect class="recy" x="268" y="145" width="6" height="6"/>
         <line class="ext" x1="93" y1="78" x2="126" y2="78" marker-end="url(#arr)"/>
         <text class="lbl-k" x="126" y="93" text-anchor="end">lower stress</text>
         <line class="hi" x1="196" y1="17" x2="212" y2="17"/>
@@ -332,7 +333,7 @@
         <text class="lbl" x="36" y="188">SoH</text>
         <text class="lbl" x="290" y="188" text-anchor="end">time · cycles →</text>
       </svg>
-      <figcaption id="fade-cap">Battery aging, sketched. Gentler charging, shallower cycles and keeping the pack at a moderate temperature, neither hot nor cold, push the knee later. A pack retired from a car at about 80% can then work for years as stationary storage, until it drops below about 50% and is recycled.</figcaption>
+      <figcaption id="fade-cap">Battery aging, sketched. Gentler charging, shallower cycles and keeping the pack at a moderate temperature, neither hot nor cold, push the knee later. A pack retired from a car at about 80% can then work for years as stationary storage, until it drops below about 50% and is recycled. Second life has its own knee, so the fade speeds up again near the end.</figcaption>
     </figure>
   </div>
 

@@ -10,6 +10,7 @@ import http.client
 import json
 import os
 import re
+import subprocess
 import sys
 import urllib.request
 from datetime import datetime, timezone
@@ -64,19 +65,29 @@ def youtube_api_views(video_ids):
 
 def youtube_views(video_id, feed=None):
     """Try several public sources; YouTube blocks some of them from cloud servers."""
-    player_request = json.dumps({
-        "videoId": video_id,
-        "context": {"client": {"clientName": "WEB", "clientVersion": "2.20240101.00.00", "hl": "en"}},
-    }).encode()
+    def player(client, version):
+        body = json.dumps({"videoId": video_id, "context": {"client": {
+            "clientName": client, "clientVersion": version, "hl": "en"}}}).encode()
+        return get("https://www.youtube.com/youtubei/v1/player?prettyPrint=false",
+                   {"Content-Type": "application/json"}, body)
+
+    def ytdlp():
+        out = subprocess.run(["yt-dlp", "--skip-download", "--print", '"viewCount":"%(view_count)s"',
+                              f"https://www.youtube.com/watch?v={video_id}"],
+                             capture_output=True, text=True, timeout=120)
+        return out.stdout
+
     sources = [
         lambda: get(f"https://www.youtube.com/watch?v={video_id}", {"Cookie": "SOCS=CAI"}),
-        lambda: get("https://www.youtube.com/youtubei/v1/player?prettyPrint=false",
-                    {"Content-Type": "application/json"}, player_request),
+        lambda: player("WEB", "2.20240101.00.00"),
+        lambda: player("MWEB", "2.20240101.01.00"),
+        ytdlp,
     ]
-    for fetch in sources:
+    for name, fetch in zip(["watch page", "WEB player", "MWEB player", "yt-dlp"], sources):
         try:
             m = re.search(r'"viewCount":"(\d+)"', fetch())
             if m:
+                print(f"youtube {video_id}: {name}", file=sys.stderr)
                 return int(m.group(1))
         except Exception:
             pass

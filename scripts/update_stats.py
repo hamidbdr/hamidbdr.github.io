@@ -26,7 +26,7 @@ UA = (
 TIKTOK_USER = "hd.brr"
 TIKTOK_VIDEOS = ["7497985056653249814"]
 YOUTUBE_CHANNEL = "UChnlG7TStIlgv1EcdSZBHVg"
-YOUTUBE_VIDEOS = ["1_WKkzb5Dd4", "xMZ7kFXE5Jc", "X-8d8J09OTA", "zabBqJazzWg"]
+YOUTUBE_VIDEOS = ["pr7InxdE5OU", "1_WKkzb5Dd4", "xMZ7kFXE5Jc", "X-8d8J09OTA"]
 SCHOLAR_USER = "9fMwc-wAAAAJ"
 # Key used in the page -> start of the paper title on Google Scholar.
 SCHOLAR_PAPERS = {

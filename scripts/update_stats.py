@@ -6,6 +6,7 @@ changes, the previous value is kept so the site never shows a blank.
 """
 
 import html
+import http.client
 import json
 import re
 import sys
@@ -23,6 +24,7 @@ UA = (
 
 TIKTOK_USER = "hd.brr"
 TIKTOK_VIDEOS = ["7497985056653249814"]
+YOUTUBE_CHANNEL = "UChnlG7TStIlgv1EcdSZBHVg"
 YOUTUBE_VIDEOS = ["1_WKkzb5Dd4", "xMZ7kFXE5Jc", "X-8d8J09OTA", "zabBqJazzWg"]
 SCHOLAR_USER = "9fMwc-wAAAAJ"
 # Key used in the page -> start of the paper title on Google Scholar.
@@ -34,10 +36,14 @@ SCHOLAR_PAPERS = {
 }
 
 
-def get(url, headers=None):
-    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept-Language": "en", **(headers or {})})
+def get(url, headers=None, data=None):
+    req = urllib.request.Request(url, data=data, headers={"User-Agent": UA, "Accept-Language": "en", **(headers or {})})
     with urllib.request.urlopen(req, timeout=30) as r:
-        return r.read().decode("utf-8", "replace")
+        try:
+            body = r.read()
+        except http.client.IncompleteRead as exc:  # TikTok sometimes cuts the stream short
+            body = exc.partial
+    return body.decode("utf-8", "replace")
 
 
 def tiktok_views(video_id):
@@ -45,9 +51,31 @@ def tiktok_views(video_id):
     return int(re.search(r'"playCount":(\d+)', page).group(1))
 
 
-def youtube_views(video_id):
-    page = get(f"https://www.youtube.com/watch?v={video_id}", {"Cookie": "SOCS=CAI"})
-    return int(re.search(r'"viewCount":"(\d+)"', page).group(1))
+def youtube_views(video_id, feed=None):
+    """Try several public sources; YouTube blocks some of them from cloud servers."""
+    player_request = json.dumps({
+        "videoId": video_id,
+        "context": {"client": {"clientName": "WEB", "clientVersion": "2.20240101.00.00", "hl": "en"}},
+    }).encode()
+    sources = [
+        lambda: get(f"https://www.youtube.com/watch?v={video_id}", {"Cookie": "SOCS=CAI"}),
+        lambda: get("https://www.youtube.com/youtubei/v1/player?prettyPrint=false",
+                    {"Content-Type": "application/json"}, player_request),
+    ]
+    for fetch in sources:
+        try:
+            m = re.search(r'"viewCount":"(\d+)"', fetch())
+            if m:
+                return int(m.group(1))
+        except Exception:
+            pass
+    # The channel RSS feed lists only the 15 latest uploads, with their views.
+    if feed:
+        pattern = r"<yt:videoId>%s</yt:videoId>.*?<media:statistics views=\"(\d+)\"" % re.escape(video_id)
+        m = re.search(pattern, feed, re.S)
+        if m:
+            return int(m.group(1))
+    raise LookupError("no source returned a view count")
 
 
 def scholar():
@@ -78,8 +106,9 @@ def main():
         n = attempt(f"tiktok {vid}", lambda: tiktok_views(vid))
         if n:
             stats.setdefault("tiktok", {})[vid] = n
+    feed = attempt("youtube feed", lambda: get(f"https://www.youtube.com/feeds/videos.xml?channel_id={YOUTUBE_CHANNEL}"))
     for vid in YOUTUBE_VIDEOS:
-        n = attempt(f"youtube {vid}", lambda: youtube_views(vid))
+        n = attempt(f"youtube {vid}", lambda: youtube_views(vid, feed))
         if n:
             stats.setdefault("youtube", {})[vid] = n
     s = attempt("scholar", scholar)
@@ -89,7 +118,8 @@ def main():
     after = json.dumps({k: v for k, v in stats.items() if k != "updated"}, sort_keys=True)
     if after != before:
         stats["updated"] = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-    STATS.write_text(json.dumps(stats, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    with open(STATS, "w", encoding="utf-8", newline="\n") as f:  # LF on every OS, so local runs make no diff
+        f.write(json.dumps(stats, indent=2, ensure_ascii=False) + "\n")
 
     print(json.dumps(stats, indent=2, ensure_ascii=False))
     for f in failures:
